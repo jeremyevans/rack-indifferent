@@ -1,9 +1,7 @@
 spec = Gem::Specification.new do |s|
   s.name = 'rack-indifferent'
-  s.version = '1.0.0'
+  s.version = '1.1.0'
   s.platform = Gem::Platform::RUBY
-  s.extra_rdoc_files = ["README.rdoc", "CHANGELOG", "MIT-LICENSE"]
-  s.rdoc_options += ["--quiet", "--line-numbers", "--inline-source", '--title', 'rack-indifferent: Fast indifferent access to request params', '--main', 'README.rdoc']
   s.license = "MIT"
   s.summary = "Fast indifferent access to request params"
   s.author = "Jeremy Evans"
