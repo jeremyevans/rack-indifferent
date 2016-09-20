@@ -1,9 +1,9 @@
 = rack-indifferent
 
-rack-indifferent monkey patches Rack::Utils::KeySpaceConstrainedParams
-to make the hash it stores params in support indifferent access.  So web
-frameworks that use rack-indifferent don't have to make a deep copy
-of the params to allow indifferent access to the params.
+rack-indifferent modifiesrack to make the hash it stores query params in
+support indifferent access.  This allows web frameworks/applications that
+use rack-indifferent don't have to make a deep copy of the params to allow
+indifferent access to the params.
 
 == Installation
 
@@ -15,12 +15,17 @@ Source code is available on GitHub at https://github.com/jeremyevans/rack-indiff
 
 == Basic Usage
 
-Since this just monkey patches part of Rack::Utils, you just need to require
-the library:
+You just need to require the library:
 
   require 'rack/indifferent'
 
-This will change the params hashes that rack uses to use indifferent access.
+On rack 1, this will monkey patch a rack class to change the query params hashes
+that rack uses to use indifferent access.
+
+On rack 2, this will set a new default query parser that uses hashes with
+indifferent access.  Note that web frameworks and applications that use
+custom query parsers in their request class will not be affected by
+rack-indifferent.
 
 == License
 
