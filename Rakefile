@@ -10,6 +10,6 @@ end
 
 desc "Build rack-indifferent gem"
 task :spec do |p|
-  sh %{#{FileUtils::RUBY} -rubygems -I lib spec/indifferent_spec.rb}
+  sh %{#{FileUtils::RUBY} -I lib spec/indifferent_spec.rb}
 end
 task :default => :spec
