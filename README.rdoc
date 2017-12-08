@@ -1,9 +1,17 @@
 = rack-indifferent
 
-rack-indifferent modifiesrack to make the hash it stores query params in
-support indifferent access.  This allows web frameworks/applications that
-use rack-indifferent don't have to make a deep copy of the params to allow
-indifferent access to the params.
+rack-indifferent modifies rack to make the hash it stores query params in
+support indifferent access (access via strings or symbols).  This makes it so
+web frameworks/applications that use rack-indifferent don't have to make a deep
+copy of the params to allow indifferent access to the params.
+
+Note that while this allows you to save a character when accessing the params
+(<tt>params[:param_name]</tt> instead of <tt>params["param_name"]</tt>), it
+is a bad idea in general as it makes it more difficult to separate untrusted
+external data access (via strings) from internal trusted data (via symbols).
+Mixing the two types of data access (i.e. treating untrusted data as trusted)
+is a common security vulnerability, and this library makes it easier to be
+vulnerable.
 
 == Installation
 
