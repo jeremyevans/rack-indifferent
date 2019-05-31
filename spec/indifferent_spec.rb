@@ -1,5 +1,6 @@
 require File.join(File.dirname(File.expand_path(__FILE__)), '../lib/rack/indifferent')
 require 'rack/mock'
+ENV['MT_NO_PLUGINS'] = '1' # Work around stupid autoloading of plugins
 require 'minitest/autorun'
 
 describe 'rack-indifferent' do
