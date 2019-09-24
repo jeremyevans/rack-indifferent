@@ -1,7 +1,7 @@
 require File.join(File.dirname(File.expand_path(__FILE__)), '../lib/rack/indifferent')
 require 'rack/mock'
 ENV['MT_NO_PLUGINS'] = '1' # Work around stupid autoloading of plugins
-require 'minitest/autorun'
+require 'minitest/global_expectations/autorun'
 
 describe 'rack-indifferent' do
   it "should make requests use indifferent param hashes" do
